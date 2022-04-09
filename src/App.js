@@ -1,5 +1,17 @@
+import NavbarGlobal from "./components/content";
+import "./styles/global/style.css";
+
 function App() {
-  return <h1>Hi Rosada :)!</h1>;
+  return (
+    <>
+      <NavbarGlobal />
+      <Content />
+    </>
+  );
 }
+
+const Content = () => {
+  return <div id="content"></div>;
+};
 
 export default App;
