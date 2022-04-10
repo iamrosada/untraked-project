@@ -8,7 +8,7 @@ import {
   Button,
 } from "@blueprintjs/core";
 import "./styles.css";
-
+import { Input } from "@chakra-ui/react";
 const SearchInput = ({ isOpen, setShowComponent }) => {
   const wrapperRef = useRef(null);
 
@@ -30,21 +30,14 @@ const SearchInput = ({ isOpen, setShowComponent }) => {
     };
   }, [setShowComponent, wrapperRef]);
 
-  // useEffect(() => {
-  //   const element = document.getElementById("b");
-  //   if (isOpen) {
-  //     element.addEventListener("click", () => {
-  //       console.log("clicou no modal");
-  //     });
-  //   } else {
-  //     document.removeEventListener("click", () => {});
-  //   }
-  // });
   return (
     <div id="#disclaimer" className="modal-container">
-      <section ref={wrapperRef} id="b" className="modal">
-        <header className="modal-header">
-          <input></input>
+      {/* <section ref={wrapperRef} className="modal"> */}
+      <section ref={wrapperRef} className="mxo">
+        {/* <header className="modal-header">
+          <div className="css-4302v8">
+            <input className="input icon"></input>
+          </div>
         </header>
         <div className="modal-content">
           <p>
@@ -54,7 +47,8 @@ const SearchInput = ({ isOpen, setShowComponent }) => {
             billions upon billions upon billions upon billions upon billions
             upon billions upon billions.
           </p>
-        </div>
+        </div> */}
+        <Input placeholder="Digite o nome de um estudante :)" size="lg" />
       </section>
     </div>
   );
@@ -74,7 +68,7 @@ const NavbarGlobal = () => {
         <div className="nav">
           <NavbarGroup align={"right"} className="nav-container">
             <input
-              className="bp4-input"
+              className="input icon"
               placeholder="Search files..."
               type="text"
               onClick={handleInput}
