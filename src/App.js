@@ -1,11 +1,13 @@
 import NavbarGlobal from "./components/content";
+import SidebarWithHeader from "./components/sidebar";
 import "./styles/global/style.css";
 
 function App() {
   return (
     <>
-      <NavbarGlobal />
+      {/* <NavbarGlobal /> */}
       <Content />
+      <SidebarWithHeader />
     </>
   );
 }
