@@ -22,6 +22,7 @@ import {
   MenuItem,
   MenuList,
   Input,
+  Button,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -35,7 +36,10 @@ import {
   FiEdit3,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
-import { ReactText } from "react";
+import { ReactText , useContext} from "react";
+import AppContext from "../../AppContext"; 
+import ServerSecondaryOptions from "../optionMenu";
+import { AllStudents } from "../../pages/allStudents";
 
 const LinkItems = [
   { name: "Home", icon: FiHome },
@@ -43,11 +47,13 @@ const LinkItems = [
   // { name: "Explore", icon: FiCompass },
   // { name: "Favourites", icon: FiStar },
   // { name: "Settings", icon: FiSettings },
-  { name: "Students", icon: FiEdit3 },
+  // { name: "Students", icon: FiEdit3 },
 ];
 
 export default function SidebarWithHeader({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [openPage] = useContext(AppContext)
+  
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
@@ -71,7 +77,8 @@ export default function SidebarWithHeader({ children }) {
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        <h>Tudo vai ser aqui </h>
+        TUDO VAI SER AQUI
+      {openPage ?   <AllStudents/> :null}
       </Box>
     </Box>
   );
@@ -94,13 +101,33 @@ const SidebarContent = ({ onClose, ...rest }) => {
           {/* Logo */}
           Вгуит +
         </Text>
-        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
+        {/* <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} /> */}
       </Flex>
-      {LinkItems.map((link) => (
+      {/* {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
+          <ServerSecondaryOptions />
         </NavItem>
-      ))}
+      ))} */}
+      <NavItem>
+        <Button
+          w="194px"
+          variant="ghost"
+          leftIcon={<FiHome />}
+          // justifyContent="space-between"
+          fontWeight="normal"
+          // colorScheme="red"
+          fontSize="sm"
+          _hover={{
+            bg: "cyan.400",
+            color: "white",
+          }}
+        >
+          Home
+        </Button>
+      </NavItem>
+
+      <ServerSecondaryOptions />
     </Box>
   );
 };
@@ -111,11 +138,12 @@ const NavItem = ({ icon, children, ...rest }) => {
       href="#"
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
+      justifyContent="center"
     >
       <Flex
         align="center"
-        p="4"
-        mx="4"
+        // p="4"
+        mx="6"
         borderRadius="lg"
         role="group"
         cursor="pointer"
