@@ -40,6 +40,7 @@ import { ReactText , useContext} from "react";
 import AppContext from "../../AppContext"; 
 import ServerSecondaryOptions from "../optionMenu";
 import { AllStudents } from "../../pages/allStudents";
+import EditStudents from "../../pages/editStudents";
 
 const LinkItems = [
   { name: "Home", icon: FiHome },
@@ -52,7 +53,7 @@ const LinkItems = [
 
 export default function SidebarWithHeader({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [openPage] = useContext(AppContext)
+  const [openPage,setOpenPage,openPageEditStudent, setOpenPageEditStudent] = useContext(AppContext)
   
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -78,6 +79,7 @@ export default function SidebarWithHeader({ children }) {
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         TUDO VAI SER AQUI
+      {openPageEditStudent &&<EditStudents/>}
       {openPage ?   <AllStudents/> :null}
       </Box>
     </Box>
