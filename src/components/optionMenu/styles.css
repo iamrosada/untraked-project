@@ -1,0 +1,17 @@
+div.studant-dropdown{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0.1rem;
+  align-content: center;
+}
+div.studant-dropdown > span#studant{
+  margin-left: 1rem;
+}
+.css-ril8q6{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  margin-left: 10rem;
+}
