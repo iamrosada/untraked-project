@@ -18,11 +18,17 @@ import { useNavigate } from "react-router-dom";
 import AppContext from "../../AppContext"; 
 
 export default function ServerSecondaryOptions() {
-  const [openPage,setOpenPage] = useContext(AppContext)
+  const [openPage,setOpenPage,openPageEditStudent, setOpenPageEditStudent] = useContext(AppContext)
   const navigate = useNavigate()
-  const handleClick =()=>{
+  const handleListEstudentClick =()=>{
     navigate('/about')
     setOpenPage({openPage:true})
+    setOpenPageEditStudent()
+  }
+  const handleEditeEstudentClick =()=>{
+    navigate('/edit')
+    setOpenPageEditStudent({openPageEditStudent:true})
+    setOpenPage()
   }
   return (
     /**
@@ -59,6 +65,7 @@ export default function ServerSecondaryOptions() {
                 justifyContent="space-between"
                 fontWeight="normal"
                 fontSize="sm"
+               onClick={handleEditeEstudentClick}
               >
                 Edit Student
               </Button>
@@ -70,7 +77,7 @@ export default function ServerSecondaryOptions() {
                 fontWeight="normal"
                 // colorScheme="red"
                 fontSize="sm"
-                onClick={handleClick}
+                onClick={handleListEstudentClick}
               >
                 List of Students
               </Button>
