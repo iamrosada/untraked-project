@@ -8,8 +8,9 @@ import AppContext from './AppContext'
 const {Provider} = AppContext;
 function App() {
   const [openPage, setOpenPage] = useState(false)
+  const [openPageEditStudent, setOpenPageEditStudent] = useState(false)
   return (
-<Provider value={[openPage,setOpenPage]}>
+<Provider value={[openPage,setOpenPage,openPageEditStudent, setOpenPageEditStudent]}>
        <Router>
           {/* <NavbarGlobal /> */}
           {/* <Content /> */}
