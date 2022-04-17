@@ -9,8 +9,9 @@ const {Provider} = AppContext;
 function App() {
   const [openPage, setOpenPage] = useState(false)
   const [openPageEditStudent, setOpenPageEditStudent] = useState(false)
+  const [openPageDeletetStudent, setOpenPageDeleteStudent] = useState(false)
   return (
-<Provider value={[openPage,setOpenPage,openPageEditStudent, setOpenPageEditStudent]}>
+<Provider value={[openPage,setOpenPage,openPageEditStudent, setOpenPageEditStudent,openPageDeletetStudent, setOpenPageDeleteStudent]}>
        <Router>
           {/* <NavbarGlobal /> */}
           {/* <Content /> */}
