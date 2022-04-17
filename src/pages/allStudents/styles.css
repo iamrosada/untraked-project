@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ th,td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:hover{
+  background-color: #26C6DA;
+  transition: 300ms ease;
+}
+.avatar-student{
+display: flex;
+align-items: center;
+align-content: center;
+
+
+}
+
+.avatar-student > img{
+  border-radius: 50%;
+  height: 60px;
+  margin-right: 100px;
+}
