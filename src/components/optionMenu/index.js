@@ -1,4 +1,4 @@
-import  { useContext } from 'react';
+import { useContext } from "react";
 import {
   Popover,
   PopoverTrigger,
@@ -11,25 +11,41 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import "./styles.css";
-import { FiEdit3, FiSettings } from "react-icons/fi";
+import { FiEdit3, FiSettings, FiTrash2, FiFileText } from "react-icons/fi";
 // import { BsThreeDotsVertical, BsChatSquareQuote } from 'react-icons/bs';
 // import { RiShutDownLine, RiRestartLine, RiFileShredLine } from 'react-icons/ri';
 import { useNavigate } from "react-router-dom";
-import AppContext from "../../AppContext"; 
+import AppContext from "../../AppContext";
 
 export default function ServerSecondaryOptions() {
-  const [openPage,setOpenPage,openPageEditStudent, setOpenPageEditStudent] = useContext(AppContext)
-  const navigate = useNavigate()
-  const handleListEstudentClick =()=>{
-    navigate('/about')
-    setOpenPage({openPage:true})
-    setOpenPageEditStudent()
-  }
-  const handleEditeEstudentClick =()=>{
-    navigate('/edit')
-    setOpenPageEditStudent({openPageEditStudent:true})
-    setOpenPage()
-  }
+  const [
+    openPage,
+    setOpenPage,
+    openPageEditStudent,
+    setOpenPageEditStudent,
+    openPageDeletetStudent,
+    setOpenPageDeleteStudent,
+  ] = useContext(AppContext);
+  const navigate = useNavigate();
+  const handleListEstudentClick = () => {
+    navigate("/about");
+    setOpenPage({ openPage: true });
+    setOpenPageEditStudent();
+    setOpenPageDeleteStudent();
+  };
+  const handleEditeEstudentClick = () => {
+    navigate("/edit");
+    setOpenPageEditStudent({ openPageEditStudent: true });
+    setOpenPage();
+    setOpenPageDeleteStudent();
+  };
+
+  const handleDeleteStudentClick = () => {
+    navigate("/delete");
+    setOpenPageDeleteStudent({ openPageDeletetStudent: true });
+    setOpenPage();
+    setOpenPageEditStudent();
+  };
   return (
     /**
      * You may move the Popover outside Flex.
@@ -65,14 +81,14 @@ export default function ServerSecondaryOptions() {
                 justifyContent="space-between"
                 fontWeight="normal"
                 fontSize="sm"
-               onClick={handleEditeEstudentClick}
+                onClick={handleEditeEstudentClick}
               >
                 Edit Student
               </Button>
               <Button
                 w="194px"
                 variant="ghost"
-                // rightIcon={<RiFileShredLine />}
+                rightIcon={<FiFileText />}
                 justifyContent="space-between"
                 fontWeight="normal"
                 // colorScheme="red"
@@ -84,24 +100,25 @@ export default function ServerSecondaryOptions() {
               <Button
                 w="194px"
                 variant="ghost"
-                // rightIcon={<RiRestartLine />}
+                // rightIcon={<RiShutDownLine />}
                 justifyContent="space-between"
                 fontWeight="normal"
-                colorScheme="red"
+                // colorScheme="red"
                 fontSize="sm"
               >
-                Restart Server
+                Country
               </Button>
               <Button
                 w="194px"
                 variant="ghost"
-                // rightIcon={<RiShutDownLine />}
+                rightIcon={<FiTrash2 />}
                 justifyContent="space-between"
                 fontWeight="normal"
                 colorScheme="red"
                 fontSize="sm"
+                onClick={handleDeleteStudentClick}
               >
-                Disable Server
+                Delete Student
               </Button>
             </Stack>
           </PopoverBody>
