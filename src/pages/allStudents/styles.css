@@ -1,19 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+.container-all-students-and-bio{
+  display: flex;
+}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  /* width: 100%; */
+  width: 1899px;
+  height: 299px;
 }
 
  th,td {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  /* padding: 8px; */
+ 
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
+  
+ 
 }
+
 tr:hover{
   background-color: #26C6DA;
   transition: 300ms ease;
@@ -28,6 +37,8 @@ align-content: center;
 
 .avatar-student > img{
   border-radius: 50%;
-  height: 60px;
-  margin-right: 100px;
+  height: 40px;
+  padding: 4px;
 }
+
+
